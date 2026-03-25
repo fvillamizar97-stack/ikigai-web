@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikigai Senior Cali</title>
+  <meta name="description" content="Ikigai Senior Cali - acompañamiento humano y atención cercana para adultos mayores en Cali." />
+  <style>
+    :root{
+      --bg:#f7f4ef;
+      --card:#ffffff;
+      --text:#222222;
+      --muted:#666666;
+      --line:#e7dfd3;
+      --accent:#8b6f47;
+      --accent-dark:#6f5737;
+      --soft:#efe7dc;
+      --whatsapp:#25D366;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{
+      width:min(1120px, calc(100% - 32px));
+      margin:0 auto;
+    }
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(247,244,239,.92);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 0;
+    }
+    .brand-small{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin:0 0 4px;
+    }
+    .brand-title{
+      font-size:22px;
+      font-weight:700;
+      margin:0;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:16px;
+      padding:14px 22px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+    }
+    .btn-primary:hover{
+      background:var(--accent-dark);
+    }
+    .btn-outline{
+      border-color:var(--line);
+      background:white;
+    }
+    .btn-whatsapp{
+      background:var(--whatsapp);
+      color:white;
+    }
+    .hero{
+      padding:72px 0 48px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:32px;
+      align-items:center;
+    }
+    .eyebrow{
+      color:var(--accent-dark);
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    h1{
+      font-size:54px;
+      line-height:1.05;
+      margin:0 0 18px;
+    }
+    .lead{
+      font-size:19px;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 0 28px;
+    }
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin-top:10px;
+    }
+    .stat{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 8px 30px rgba(0,0,0,.03);
+    }
+    .stat strong{
+      display:block;
+      font-size:28px;
+      margin-bottom:4px;
+    }
+    .stat span{
+      color:var(--muted);
+      font-size:14px;
+    }
+    .phone-card{
+      background:linear-gradient(180deg, #fff 0%, #fbfaf7 100%);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:18px;
+      box-shadow:0 18px 60px rgba(74, 54, 28, .08);
+    }
+    .phone-inner{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+    }
+    .profile-head{
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      border-bottom:1px solid var(--line);
+    }
+    .profile-head h3{
+      margin:0 0 4px;
+      font-size:18px;
+    }
+    .profile-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .mini-link{
+      color:var(--accent-dark);
+      font-weight:700;
+      font-size:14px;
+    }
+    .grid-posts{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:10px;
+      padding:12px;
+    }
+    .post{
+      aspect-ratio:1/1;
+      border-radius:18px;
+      background:var(--soft);
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--accent-dark);
+      font-size:13px;
+      padding:10px;
+      font-weight:700;
+    }
+    .section{
+      padding:56px 0;
+    }
+    .section.alt{
+      background:#f2ede6;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .section-title{
+      font-size:38px;
+      margin:0 0 14px;
+    }
+    .section-text{
+      color:var(--muted);
+      font-size:18px;
+      max-width:760px;
+      margin:0 0 28px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 10px 35px rgba(0,0,0,.03);
+    }
+    .card h3{
+      margin:0 0 12px;
+      font-size:22px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
+    .cta{
+      padding:70px 0 80px;
+    }
+    .cta-box{
+      background:#2e241a;
+      color:white;
+      border-radius:30px;
+      padding:34px;
+      box-shadow:0 18px 60px rgba(46,36,26,.18);
+    }
+    .cta-box .eyebrow{
+      color:#d8c4a0;
+      margin-bottom:10px;
+    }
+    .cta-box h2{
+      font-size:40px;
+      margin:0 0 14px;
+      line-height:1.1;
+    }
+    .cta-box p{
+      color:#e5ddd3;
+      font-size:18px;
+      max-width:760px;
+      margin:0 0 28px;
+    }
+    .cta-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    footer{
+      padding:18px 0 36px;
+      color:var(--muted);
+      text-align:center;
+      font-size:14px;
+    }
+    @media (max-width: 900px){
+      .hero-grid,.cards{
+        grid-template-columns:1fr;
+      }
+      h1{font-size:40px}
+      .section-title{font-size:30px}
+      .cta-box h2{font-size:32px}
+    }
+    @media (max-width: 640px){
+      .topbar-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .stats{
+        grid-template-columns:1fr;
+      }
+      .grid-posts{
+        gap:8px;
+      }
+      .btn{
+        width:100%;
+      }
+      .actions,.cta-actions{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <p class="brand-small">Ikigai Senior Cali</p>
+        <h2 class="brand-title">Atención cercana para adultos mayores</h2>
+      </div>
+      <a class="btn btn-primary" href="https://www.instagram.com/ikigai.senior/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Acompañamiento humano y profesional</div>
+          <h1>Conecta a las familias con una atención cálida y confiable.</h1>
+          <p class="lead">
+            Ikigai Senior Cali ofrece un espacio claro y cercano para que las familias conozcan el proyecto,
+            resuelvan dudas y hagan contacto inmediato por WhatsApp o Instagram.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-whatsapp" href="https://wa.me/573044099713?text=Hola%20Ikigai%20Senior%20Cali%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+            <a class="btn btn-outline" href="https://www.instagram.com/ikigai.senior/" target="_blank" rel="noopener noreferrer">Abrir Instagram</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Información disponible para las familias</span>
+            </div>
+            <div class="stat">
+              <strong>1 clic</strong>
+              <span>Contacto directo por WhatsApp</span>
+            </div>
+            <div class="stat">
+              <strong>Cali</strong>
+              <span>Presencia local con atención cercana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-card">
+          <div class="phone-inner">
+            <div class="profile-head">
+              <div>
+                <h3>@ikigai.senior</h3>
+                <p>Ikigai Senior Cali</p>
+              </div>
+              <a class="mini-link" href="https://www.instagram.com/ikigai.senior/" target="_blank" rel="noopener noreferrer">Abrir</a>
+            </div>
+
+            <div class="grid-posts">
+              <div class="post">Cuidado con calidez</div>
+              <div class="post">Acompañamiento diario</div>
+              <div class="post">Atención humana</div>
+              <div class="post">Bienestar integral</div>
+              <div class="post">Confianza familiar</div>
+              <div class="post">Contacto inmediato</div>
+            </div>
+          </div>
+          <p style="margin:14px 4px 0;color:var(--muted);font-size:14px;">
+            Esta página está pensada para recibir tráfico desde Instagram y convertir visitas en conversaciones reales por WhatsApp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2 class="section-title">Una web sencilla, pero hecha para generar confianza.</h2>
+        <p class="section-text">
+          No necesitas algo complicado. Necesitas una página clara, profesional y cálida que complemente tu Instagram,
+          explique el proyecto y facilite que las familias te escriban en el momento correcto.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Enlace en bio</h3>
+            <p>Lleva a tus seguidores a una página profesional con la información más importante del proyecto.</p>
+          </div>
+          <div class="card">
+            <h3>Más confianza</h3>
+            <p>Presenta servicios, beneficios, mensajes claros y pruebas sociales para que las familias se sientan seguras.</p>
+          </div>
+          <div class="card">
+            <h3>Más contacto</h3>
+            <p>Convierte las visitas en conversaciones con un botón directo a WhatsApp y acceso fácil a Instagram.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contacto">
+      <div class="container">
+        <div class="cta-box">
+          <div class="eyebrow">Ikigai Senior Cali</div>
+          <h2>Acompañamiento humano y confianza desde el primer contacto.</h2>
+          <p>
+            Usa esta página para presentar tu propuesta de valor, llevar tráfico desde Instagram y facilitar
+            que las familias te contacten de inmediato por WhatsApp.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-whatsapp" href="https://wa.me/573044099713?text=Hola%20Ikigai%20Senior%20Cali%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+            <a class="btn btn-outline" style="background:transparent;border-color:#6c5c49;color:white;" href="https://www.instagram.com/ikigai.senior/" target="_blank" rel="noopener noreferrer">Ir al Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Ikigai Senior Cali · Instagram: @ikigai.senior · WhatsApp: 304 409 9713
+    </div>
+  </footer>
+</body>
+</html>
